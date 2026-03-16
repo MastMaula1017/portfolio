@@ -1,10 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, MapPin, Phone } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
+import MagneticWrapper from './MagneticWrapper';
 
 const Contact = () => {
+  const [buttonText, setButtonText] = useState("Send Message");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setButtonText("Sending...");
+    
+    const formData = new FormData(event.target);
+    // Replace with actual Web3Forms key
+    formData.append("access_key", "590e0556-f4f3-40c1-9976-556cf79c6307");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Kaboom! Message Sent Successfully! 🚀", {
+          style: {
+            border: '4px solid black',
+            padding: '16px',
+            color: 'black',
+            background: '#A1E8AF',
+            fontFamily: '"Fredoka", sans-serif',
+            fontWeight: 'bold',
+            boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
+            borderRadius: '12px'
+          },
+          iconTheme: { primary: 'black', secondary: '#A1E8AF' },
+        });
+        event.target.reset();
+      } else {
+        toast.error("Oops! Something went wrong.", {
+          style: {
+            border: '4px solid black',
+            padding: '16px',
+            color: 'black',
+            background: '#FFB7B2',
+            fontFamily: '"Fredoka", sans-serif',
+            fontWeight: 'bold',
+            boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
+            borderRadius: '12px'
+          }
+        });
+      }
+    } catch (error) {
+      toast.error("Network error. Try again later.", {
+          style: {
+            border: '4px solid black',
+            padding: '16px',
+            color: 'black',
+            background: '#FFB7B2',
+            fontFamily: '"Fredoka", sans-serif',
+            fontWeight: 'bold',
+            boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)',
+            borderRadius: '12px'
+          }
+        });
+    }
+    setButtonText("Send Message");
+  };
+
   return (
     <section id="contact" className="section-padding bg-sky-blue relative">
+      <Toaster position="bottom-center" />
       <h2 className="heading-title text-white underline-white">Catch Me Here 📬</h2>
       
       <div className="max-w-4xl mx-auto comic-card bg-white flex flex-col md:flex-row overflow-hidden">
@@ -42,11 +109,13 @@ const Contact = () => {
 
         {/* Right Form Side */}
         <div className="md:w-1/2 p-8 md:p-12">
-          <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-4" onSubmit={onSubmit}>
             <div>
               <label className="font-fredoka font-bold text-lg mb-1 block">Your Name</label>
               <input 
                 type="text" 
+                name="name"
+                required
                 placeholder="John Doe"
                 className="w-full bg-gray-50 border-4 border-black p-3 rounded-lg font-semibold focus:outline-none focus:-translate-y-1 focus:shadow-[4px_4px_0_0_rgba(0,0,0,1)] transition-all"
               />
@@ -56,6 +125,8 @@ const Contact = () => {
               <label className="font-fredoka font-bold text-lg mb-1 block">Email</label>
               <input 
                 type="email" 
+                name="email"
+                required
                 placeholder="john@example.com"
                 className="w-full bg-gray-50 border-4 border-black p-3 rounded-lg font-semibold focus:outline-none focus:-translate-y-1 focus:shadow-[4px_4px_0_0_rgba(0,0,0,1)] transition-all"
               />
@@ -64,28 +135,37 @@ const Contact = () => {
             <div>
               <label className="font-fredoka font-bold text-lg mb-1 block">Message</label>
               <textarea 
+                name="message"
+                required
                 rows="4"
                 placeholder="Say hello..."
                 className="w-full bg-gray-50 border-4 border-black p-3 rounded-lg font-semibold focus:outline-none focus:-translate-y-1 focus:shadow-[4px_4px_0_0_rgba(0,0,0,1)] transition-all resize-none"
               ></textarea>
             </div>
             
-            <motion.button 
-               whileHover={{ scale: 1.05 }}
-               whileTap={{ scale: 0.95 }}
-               className="bg-black text-white comic-button py-4 mt-2 hover:bg-gray-800 flex justify-center items-center gap-2"
-            >
-              Send Message <Mail size={20} />
-            </motion.button>
+            <MagneticWrapper className="w-full mt-2 flex">
+              <motion.button 
+                 whileHover={{ scale: 1.05 }}
+                 whileTap={{ scale: 0.95 }}
+                 type="submit"
+                 className="w-full bg-black text-white comic-button py-4 hover:bg-gray-800 flex justify-center items-center gap-2"
+              >
+                {buttonText} {buttonText === "Send Message" && <Mail size={20} />}
+              </motion.button>
+            </MagneticWrapper>
           </form>
           
           <div className="flex justify-center gap-6 mt-8 border-t-4 border-black pt-6">
-            <a href="https://github.com/MastMaula1017" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black hover:-translate-y-1 transition-transform">
-               <Github size={32} />
-            </a>
-            <a href="https://linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-blue-600 hover:-translate-y-1 transition-transform">
-               <Linkedin size={32} />
-            </a>
+            <MagneticWrapper>
+              <a href="https://github.com/MastMaula1017" target="_blank" rel="noreferrer" className="inline-block text-gray-600 hover:text-black hover:-translate-y-1 transition-transform">
+                 <Github size={32} />
+              </a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <a href="https://linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="inline-block text-gray-600 hover:text-blue-600 hover:-translate-y-1 transition-transform">
+                 <Linkedin size={32} />
+              </a>
+            </MagneticWrapper>
           </div>
         </div>
 

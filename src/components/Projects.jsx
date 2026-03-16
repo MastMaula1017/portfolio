@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import MagneticWrapper from './MagneticWrapper';
 
 const projectsData = [
   {
@@ -71,12 +72,16 @@ const Projects = () => {
               </div>
               
               <div className="flex gap-4 mt-auto border-t-4 border-black pt-4">
-                <motion.button whileHover={{ y: -2 }} className="flex-1 bg-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-comic active:translate-y-1 active:shadow-none transition-all">
-                  <Github size={18} /> Code
-                </motion.button>
-                <motion.button whileHover={{ y: -2 }} className="flex-1 bg-black text-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-[4px_4px_0_0_rgba(255,183,178,1)] active:translate-y-1 active:shadow-none transition-all">
-                  <ExternalLink size={18} /> Live
-                </motion.button>
+                <MagneticWrapper className="flex-1 flex">
+                  <motion.button whileHover={{ y: -2 }} className="w-full bg-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-comic active:translate-y-1 active:shadow-none transition-all">
+                    <Github size={18} /> Code
+                  </motion.button>
+                </MagneticWrapper>
+                <MagneticWrapper className="flex-1 flex">
+                  <motion.button whileHover={{ y: -2 }} className="w-full bg-black text-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-[4px_4px_0_0_rgba(255,183,178,1)] active:translate-y-1 active:shadow-none transition-all">
+                    <ExternalLink size={18} /> Live
+                  </motion.button>
+                </MagneticWrapper>
               </div>
             </div>
           </motion.div>

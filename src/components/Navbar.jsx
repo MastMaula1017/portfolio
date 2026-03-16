@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import MagneticWrapper from './MagneticWrapper';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,23 +31,26 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-6">
             {navLinks.map((link) => (
-              <a 
-                key={link} 
-                href={`#${link.toLowerCase()}`}
-                className="font-fredoka font-semibold text-lg border-2 border-transparent hover:border-black px-3 py-1 rounded-lg transition-all hover:bg-mint-green hover:-translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-              >
-                {link}
-              </a>
+              <MagneticWrapper key={link}>
+                <a 
+                  href={`#${link.toLowerCase()}`}
+                  className="inline-block font-fredoka font-semibold text-lg border-2 border-transparent hover:border-black px-3 py-1 rounded-lg transition-all hover:bg-mint-green hover:-translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                >
+                  {link}
+                </a>
+              </MagneticWrapper>
             ))}
           </div>
 
           {/* Mobile Toggle */}
-          <button 
-            className="md:hidden border-2 border-black p-1 rounded-lg hover:bg-mint-green transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <MagneticWrapper className="md:hidden">
+            <button 
+              className="border-2 border-black p-1 rounded-lg hover:bg-mint-green transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </MagneticWrapper>
         </div>
 
         {/* Mobile Nav */}

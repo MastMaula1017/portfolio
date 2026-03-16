@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import MagneticWrapper from './MagneticWrapper';
 
 const Hero = () => {
   return (
@@ -42,24 +43,34 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-wrap gap-4 mt-4">
-            <a href="#projects" className="bg-bubblegum text-black comic-button flex gap-2 items-center hover:bg-[#ff9c95]">
-              View Projects
-            </a>
-            <a href="mailto:vansh14raturi@gmail.com" className="bg-white text-black comic-button flex gap-2 items-center hover:bg-gray-100">
-              Contact Me
-            </a>
+            <MagneticWrapper>
+              <a href="#projects" className="bg-bubblegum text-black comic-button flex gap-2 items-center hover:bg-[#ff9c95]">
+                View Projects
+              </a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <a href="mailto:vansh14raturi@gmail.com" className="bg-white text-black comic-button flex gap-2 items-center hover:bg-gray-100">
+                Contact Me
+              </a>
+            </MagneticWrapper>
           </div>
 
           <div className="flex gap-4 mt-6">
-            <motion.a whileHover={{ y: -5 }} href="https://github.com/MastMaula1017" target="_blank" rel="noreferrer" className="bg-white p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-mint-green">
-               <Github size={24} />
-            </motion.a>
-            <motion.a whileHover={{ y: -5 }} href="https://linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="bg-white p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-sky-blue">
-               <Linkedin size={24} />
-            </motion.a>
-            <motion.a whileHover={{ y: -5 }} href="mailto:vansh14raturi@gmail.com" className="bg-white p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-pastel-yellow">
-               <Mail size={24} />
-            </motion.a>
+            <MagneticWrapper>
+              <motion.a whileHover={{ y: -5 }} href="https://github.com/MastMaula1017" target="_blank" rel="noreferrer" className="bg-white inline-block p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-mint-green">
+                 <Github size={24} />
+              </motion.a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <motion.a whileHover={{ y: -5 }} href="https://linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="bg-white inline-block p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-sky-blue">
+                 <Linkedin size={24} />
+              </motion.a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <motion.a whileHover={{ y: -5 }} href="mailto:vansh14raturi@gmail.com" className="bg-white inline-block p-3 border-4 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:bg-pastel-yellow">
+                 <Mail size={24} />
+              </motion.a>
+            </MagneticWrapper>
           </div>
         </motion.div>
         
