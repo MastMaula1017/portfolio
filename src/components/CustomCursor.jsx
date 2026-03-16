@@ -4,8 +4,17 @@ import { motion } from 'framer-motion';
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Initial check for mobile devices to hide the custom cursor completely
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
+    setIsVisible(true);
+    document.documentElement.style.cursor = 'none';
+    document.body.style.cursor = 'none';
+
     const updateMousePosition = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -13,10 +22,12 @@ const CustomCursor = () => {
     const handleMouseOver = (e) => {
       // Check if we are hovering over clickable elements like links or buttons
       if (
-        e.target.tagName.toLowerCase() === 'a' ||
-        e.target.tagName.toLowerCase() === 'button' ||
-        e.target.closest('a') !== null ||
-        e.target.closest('button') !== null
+        e.target && (
+          e.target.tagName.toLowerCase() === 'a' ||
+          e.target.tagName.toLowerCase() === 'button' ||
+          e.target.closest('a') !== null ||
+          e.target.closest('button') !== null
+        )
       ) {
         setIsHovering(true);
       } else {
@@ -27,17 +38,6 @@ const CustomCursor = () => {
     window.addEventListener('mousemove', updateMousePosition);
     window.addEventListener('mouseover', handleMouseOver);
 
-    // Initial check for mobile devices to hide the custom cursor completely
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
-       document.documentElement.style.cursor = 'auto';
-       return; // Don't render or track on mobile
-    } else {
-       // Hide default cursor across the entire site on desktop
-       document.documentElement.style.cursor = 'none';
-       document.body.style.cursor = 'none';
-    }
-
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
@@ -45,6 +45,8 @@ const CustomCursor = () => {
       document.body.style.cursor = 'auto';
     };
   }, []);
+
+  if (!isVisible) return null;
 
   return (
     <>

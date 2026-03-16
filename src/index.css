@@ -38,10 +38,10 @@ html {
   }
   
   .section-padding {
-    @apply py-24 px-6 md:px-12 lg:px-24 mb-16 max-w-7xl mx-auto;
+    @apply py-16 px-4 md:py-24 md:px-12 lg:px-24 mb-16 max-w-7xl mx-auto;
   }
   
   .heading-title {
-    @apply text-4xl md:text-5xl lg:text-6xl mb-12 text-center underline decoration-wavy decoration-bubblegum underline-offset-8;
+    @apply text-3xl md:text-5xl lg:text-6xl mb-12 text-center underline decoration-wavy decoration-bubblegum underline-offset-8;
   }
 }

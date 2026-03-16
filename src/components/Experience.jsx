@@ -37,7 +37,7 @@ const Experience = () => {
               </span>
             </div>
             
-            <div className="md:col-span-4 comic-card p-6 bg-white ml-6 md:ml-8 relative">
+            <div className="md:col-span-4 comic-card p-4 md:p-6 bg-white ml-5 md:ml-8 relative">
               <div className="absolute top-4 -left-4 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-black border-b-[10px] border-b-transparent z-0"></div>
               <div className="absolute top-[18px] -left-3 w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-white border-b-[8px] border-b-transparent z-10"></div>
               
@@ -75,7 +75,7 @@ const Experience = () => {
               <span className="text-gray-600 font-bold block mt-2">Highlights</span>
             </div>
             
-            <div className="md:col-span-4 comic-card p-6 bg-mint-green ml-6 md:ml-8 relative">
+            <div className="md:col-span-4 comic-card p-4 md:p-6 bg-mint-green ml-5 md:ml-8 relative">
               <div className="absolute top-4 -left-4 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-black border-b-[10px] border-b-transparent z-0"></div>
               <div className="absolute top-[18px] -left-3 w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-mint-green border-b-[8px] border-b-transparent z-10"></div>
               

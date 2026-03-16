@@ -23,7 +23,7 @@ const Skills = () => {
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1, type: "spring", stiffness: 100 }}
             whileHover={{ y: -10, rotate: 2 }}
-            className={`comic-card p-6 flex-1 min-w-[300px] ${skillGroup.color} relative overflow-hidden`}
+            className={`comic-card p-6 flex-grow w-full sm:w-[48%] md:w-[30%] max-w-[400px] ${skillGroup.color} relative overflow-hidden`}
           >
             {/* Decorative shiny bit */}
             <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white opacity-40"></div>

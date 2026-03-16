@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Lock } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 
 const projectsData = [
@@ -9,21 +9,25 @@ const projectsData = [
     period: "Sep 2025 - Dec 2025",
     description: "Architected a scalable MERN stack app with 3 user roles, 13+ RESTful endpoints with JWT & OAuth 2.0. Built a conflict-free appointment algorithm, Razorpay integration, and low-latency Socket.io chat/video module.",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Socket.io"],
-    color: "bg-bubblegum"
+    color: "bg-bubblegum",
+    liveLink: "https://consultpro.vanshraturi.me/",
+    privateRepo: true
   },
   {
     title: "Telemedicine Platform",
     period: "Nov 2025 - Dec 2025",
     description: "Full-stack telemedicine app enabling remote doctor-patient consultations. Optimized UI flow, secure JWT role-based access control, and established a complete CI auto-deployment flow with Netlify and Render.",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    color: "bg-mint-green"
+    color: "bg-mint-green",
+    repoLink: "https://github.com/Shridhar2622/Telemedicine"
   },
   {
     title: "Health Gamification",
     period: "Jun 2025 - Aug 2025",
     description: "Interactive gamified platform driving a 25% increase in habit-completion. Reward-driven fitness systems and real-time leadership boards mapping live rankings to boost user engagement.",
     tech: ["PHP", "MySQL", "Tailwind CSS"],
-    color: "bg-sky-blue"
+    color: "bg-sky-blue",
+    repoLink: "https://github.com/MastMaula1017/Gamified-Health-Website"
   }
 ];
 
@@ -73,15 +77,35 @@ const Projects = () => {
               
               <div className="flex gap-4 mt-auto border-t-4 border-black pt-4">
                 <MagneticWrapper className="flex-1 flex">
-                  <motion.button whileHover={{ y: -2 }} className="w-full bg-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-comic active:translate-y-1 active:shadow-none transition-all">
-                    <Github size={18} /> Code
-                  </motion.button>
+                  {project.privateRepo ? (
+                    <div className="w-full bg-gray-200 text-gray-500 cursor-not-allowed flex items-center justify-center gap-2 border-2 border-gray-400 py-2 rounded font-bold shadow-[2px_2px_0_0_rgba(156,163,175,1)]">
+                       <Lock size={18} /> Code
+                    </div>
+                  ) : (
+                    <motion.a 
+                      href={project.repoLink} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      whileHover={{ y: -2 }} 
+                      className="w-full bg-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-comic active:translate-y-1 active:shadow-none transition-all"
+                    >
+                      <Github size={18} /> Code
+                    </motion.a>
+                  )}
                 </MagneticWrapper>
-                <MagneticWrapper className="flex-1 flex">
-                  <motion.button whileHover={{ y: -2 }} className="w-full bg-black text-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-[4px_4px_0_0_rgba(255,183,178,1)] active:translate-y-1 active:shadow-none transition-all">
-                    <ExternalLink size={18} /> Live
-                  </motion.button>
-                </MagneticWrapper>
+                {project.liveLink && (
+                  <MagneticWrapper className="flex-1 flex">
+                    <motion.a 
+                      href={project.liveLink} 
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ y: -2 }} 
+                      className="w-full bg-black text-white flex items-center justify-center gap-2 border-2 border-black py-2 rounded font-bold shadow-[4px_4px_0_0_rgba(255,183,178,1)] active:translate-y-1 active:shadow-none transition-all"
+                    >
+                      <ExternalLink size={18} /> Live
+                    </motion.a>
+                  </MagneticWrapper>
+                )}
               </div>
             </div>
           </motion.div>

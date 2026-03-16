@@ -162,7 +162,7 @@ const Contact = () => {
               </a>
             </MagneticWrapper>
             <MagneticWrapper>
-              <a href="https://linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="inline-block text-gray-600 hover:text-blue-600 hover:-translate-y-1 transition-transform">
+              <a href="https://www.linkedin.com/in/003va/" target="_blank" rel="noreferrer" className="inline-block text-gray-600 hover:text-blue-600 hover:-translate-y-1 transition-transform">
                  <Linkedin size={32} />
               </a>
             </MagneticWrapper>
@@ -175,7 +175,7 @@ const Contact = () => {
       <motion.div 
         animate={{ rotate: -360 }}
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-        className="absolute bottom-10 right-10 w-20 h-20 bg-bubblegum border-4 border-black rotate-45 z-0"
+        className="hidden md:block absolute bottom-10 right-10 w-20 h-20 bg-bubblegum border-4 border-black rotate-45 z-0"
         style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}
       />
     </section>

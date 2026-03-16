@@ -15,7 +15,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['About', 'Skills', 'Experience', 'Projects', 'Contact'];
+  const navLinks = ['About', 'Skills', 'Experience', 'Projects', 'Certifications', 'Contact'];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
