@@ -36,7 +36,7 @@ const certificationsData = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="section-padding bg-white relative mt-20">
+    <section id="certifications" className="section-padding relative mt-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-white/60 to-transparent">
       <h2 className="heading-title underline-black text-center md:text-left">Licenses & Certifications 📜</h2>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
