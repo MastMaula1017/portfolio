@@ -124,7 +124,7 @@ const Hero = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -bottom-6 -left-6 bg-sky-blue border-4 border-black p-4 rounded-xl font-fredoka font-bold text-xl -rotate-12"
             >
-              C++ Info
+              C++ 
             </motion.div>
           </div>
         </motion.div>

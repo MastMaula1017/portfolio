@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 const About = () => {
   return (
     <section id="about" className="section-padding relative mt-20">
-      <h2 className="heading-title">About Me</h2>
+      <h2 className="heading-title w-max mx-auto">About Me</h2>
       
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div 
+          id="who-am-i-card"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -41,7 +42,7 @@ const About = () => {
             <h4 className="text-2xl mb-1">Lovely Professional University</h4>
             <p className="text-lg font-bold">B.Tech in Computer Science and Engineering</p>
             <p className="text-gray-600 font-bold">Aug 2023 - Present</p>
-            <p className="mt-2 text-lg font-extrabold bg-mint-green px-3 py-1 border-2 border-black rounded-lg inline-block">CGPA: 6.4</p>
+            <p className="mt-2 text-lg font-extrabold bg-mint-green px-3 py-1 border-2 border-black rounded-lg inline-block">CGPA: 6.6</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
