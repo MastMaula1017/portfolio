@@ -1,9 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Typewriter } from 'react-simple-typewriter';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 
+const catchphrases = [
+  "I build scalable, modern web applications. Specialized in the MERN stack and problem-solving.",
+  "Crafting clean, efficient code and elegant user experiences from front to back.",
+  "Passionate about turning complex problems into simple, beautiful digital solutions."
+];
+
 const Hero = () => {
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center section-padding relative overflow-hidden pt-24 md:pt-32">
       {/* Decorative background vectors */}
@@ -38,9 +46,19 @@ const Hero = () => {
             Full-Stack Developer 🚀
           </p>
           
-          <p className="text-lg md:text-xl max-w-lg mt-4 font-semibold">
-            I build scalable, modern web applications. Specialized in the MERN stack and problem-solving.
-          </p>
+          <div className="text-lg md:text-xl max-w-lg mt-4 font-semibold h-20 relative">
+            <span>
+              <Typewriter
+                words={catchphrases}
+                loop={0}
+                cursor
+                cursorStyle='_'
+                typeSpeed={50}
+                deleteSpeed={30}
+                delaySpeed={2000}
+              />
+            </span>
+          </div>
           
           <div className="flex flex-wrap gap-4 mt-4">
             <MagneticWrapper>
