@@ -1,0 +1,78 @@
+Vansh Raturi 
+LinkedIn: linkedin.com/in/003va/ Email: vansh14raturi@gmail.com 
+GitHub: github.com/MastMaula1017 Mobile: +91 8595116672 
+ 
+SKILLS 
+ 
+• Languages: C++, JavaScript, C, PHP 
+• Frameworks / Libraries: React, Express.js, Bootstrap, Tailwind CSS 
+  Backend: Node.js, Express, REST APIs, JWT Authentication, MVC Architecture 
+• Databases: MongoDB, MySQL, Prisma ORM, Schema Design, CRUD Operations 
+• Soft Skills: Critical Thinking, Team Collaboration, Self-Direction, Adaptability 
+ 
+PROJECTS 
+ 
+Consultancy Platform – Full-Stack Web Application | GitHub  Sep’ 25 - Dec’25 
+• Architected a scalable MERN stack application featuring 3 distinct user roles (Admin, Expert, User) and secured 13+ RESTful API endpoints using JWT and 
+Google OAuth 2.0, ensuring 100% data access control compliance.  
+• Modeled a conflict-free appointment booking algorithm that validates 1-hour time slots against expert availability, preventing 100% of double-booking 
+instances while automatically handling time-zone normalization. 
+• Integrated Razorpay Payment Gateway to process secure transactions, coupled with a custom Admin & Expert Dashboard (built with Recharts) that tracks 
+earnings and booking metrics in real-time. 
+• Engineered a low-latency communication module using Socket.io, enabling real-time chat and video consultation capabilities with persistent message history, 
+reducing external communication tool dependency by 100%. 
+ 
+Tech Stack: React, MongoDB, JavaScript, Tailwind, Node.js, Express 
+Live Website - LINK 
+ 
+Telemedicine Platform – Full-Stack Web Application | GitHub Nov’ 25 - Dec’25 
+• Built a full-stack telemedicine platform using React, Node.js, Express, and MongoDB, enabling remote doctor–patient consultations through a secure web 
+interface. 
+• Improved a fully responsive UI with optimized assets and efficient API calls, achieving ~1.2–1.5s average page load time across key user flows. 
+• Implemented secure JWT-based authentication with role-based access control (patients and doctors) and protected routes, reducing unauthorized access 
+risks by 90%+. 
+• Deployed the frontend on Netlify and backend on Render, enabling a production-like cloud setup with CI-based auto- based auto-deployment from 
+GitHub. 
+ 
+Tech Stack: React, JavaScript, Tailwind, Node.js, MongoDB 
+ 
+Health Gamification Platform | GitHub Jun’ 25 - Aug’25 
+• Built an interactive gamified web platform that increased habit-completion consistency by ~25%, measured across multiple user activity cycles after introducing 
+reward-based challenges. 
+• Applied a reward-driven fitness system with 2+ daily and weekly challenge types, resulting in higher repeat usage and task completion frequency. 
+• Developed a real-time leaderboard that updated rankings instantly on user actions, enabling continuous progress tracking and competitive engagement. 
+• Designed and enhanced a fully responsive UI supporting 100% device compatibility across mobile, tablet, and desktop screen sizes. 
+• Reduced UI response time by ~30% through component optimization and efficient state handling. 
+ 
+Tech Stack: PHP, Tailwind CSS, MySQL 
+TRAINING 
+ 
+Summer Training Internship | Certificate Jun’ 25 - Jul’ 25 
+• Completed an intensive summer training program (6–8 weeks) focused on core Data Structures and Algorithms (DSA) with structured daily practice. 
+• Gained hands-on experience implementing 6+ data structures, including arrays, linked lists, stacks, queues. 
+• Put into practice DSA concepts using C++, improving code efficiency and reducing time complexity in multiple solutions. 
+• Solved 100+ algorithmic problems covering sorting, searching, and recursion, strengthening analytical and problem-solving skills. 
+• Engaged in 20+ peer code reviews and discussions, adopting accelerated approaches and clean coding standards. 
+ 
+CERTIFICATES 
+ 
+• The Bits and Bytes of Computer Networking          | COURSERA Oct’ 24 
+• Introduction to Hardware and Operating Systems | COURSERA Oct’ 24 
+• Build Generative AI Apps with No-Code Tools       | INFOSYS Aug’ 25 
+• Cloud Computing                                                         | NPTEL Nov’ 25 
+ 
+ACHIEVEMENTS 
+ 
+• Designed and created a real-time leaderboard system that enabled live progress tracking and increased user engagement through competition. 
+• Blocked 95% of unwanted traffic by implementing rate limiting, significantly improving API stability and preventing request flooding. 
+• Improved user consistency by ~25% by building a reward-based challenge system with daily and weekly goals. 
+ 
+EDUCATION 
+ 
+Lovely Professional University Punjab, India 
+Bachelor of Technology in Computer Science and Engineering | CGPA: 6.4 Aug’ 23 - Present 
+Navyug School, Mandir Marg Gol Market, Delhi 
+Intermediate | Percentage: 74.2% Apr’ 21 - Mar’ 22 
+Navyug School, Mandir Marg Gol Market, Delhi 
+Matriculation | Percentage: 75.1% Apr’ 19 - Mar’ 20 
+

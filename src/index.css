@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  body {
+    @apply bg-pastel-yellow text-comic-text font-nunito leading-relaxed;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-fredoka font-bold tracking-wide;
+  }
+}
+
+@layer components {
+  .comic-card {
+    @apply bg-white border-4 border-black rounded-2xl shadow-comic transition-all duration-300;
+  }
+  
+  .comic-card:hover {
+    @apply -translate-y-1 shadow-comic-hover;
+  }
+  
+  .comic-button {
+    @apply font-fredoka font-bold text-lg px-6 py-3 border-4 border-black rounded-full shadow-comic transition-all duration-200 active:translate-y-1 active:shadow-none;
+  }
+  
+  .section-padding {
+    @apply py-24 px-6 md:px-12 lg:px-24 mb-16 max-w-7xl mx-auto;
+  }
+  
+  .heading-title {
+    @apply text-4xl md:text-5xl lg:text-6xl mb-12 text-center underline decoration-wavy decoration-bubblegum underline-offset-8;
+  }
+}
