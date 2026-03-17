@@ -8,28 +8,28 @@ const certificationsData = [
     title: "The Bits and Bytes of Computer Networking",
     issuer: "COURSERA",
     date: "Oct' 24",
-    link: "#", // Replace with real link
+    link: "https://drive.google.com/file/d/1KrKHgv0R_shVSHWAvToujgiTCUuLLVCT/view", // Replace with real link
     color: "bg-bubblegum"
   },
   {
     title: "Introduction to Hardware and Operating Systems",
     issuer: "COURSERA",
     date: "Oct' 24",
-    link: "#", // Replace with real link
+    link: "https://drive.google.com/file/d/1T-mZArjHUG8b7nowRpSHgw7tJLL7LVbJ/view", // Replace with real link
     color: "bg-mint-green"
   },
   {
     title: "Build Generative AI Apps with No-Code Tools",
     issuer: "INFOSYS",
     date: "Aug' 25",
-    link: "#", // Replace with real link
+    link: "https://drive.google.com/file/d/1oT5K6V1lKNZyU7AaVFpoo2VQUw0dGGo7/view", // Replace with real link
     color: "bg-sky-blue"
   },
   {
     title: "Cloud Computing",
     issuer: "NPTEL",
     date: "Nov' 25",
-    link: "#", // Replace with real link
+    link: "https://drive.google.com/file/d/1Ic7lQNwHRaLIjTrBRSh9C3JmAPYvaJgP/view", // Replace with real link
     color: "bg-pastel-yellow"
   }
 ];

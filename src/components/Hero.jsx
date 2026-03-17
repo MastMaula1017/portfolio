@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 
 const catchphrases = [
@@ -19,11 +19,6 @@ const Hero = () => {
         animate={{ rotate: 360 }} 
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         className="hidden md:block absolute top-20 right-10 md:right-32 w-24 h-24 bg-mint-green rounded-full border-4 border-black -z-10"
-      />
-      <motion.div 
-        animate={{ scale: [1, 1.2, 1], y: [0, -20, 0] }} 
-        transition={{ duration: 4, repeat: Infinity }}
-        className="hidden md:block absolute bottom-20 left-10 md:left-32 w-16 h-16 bg-sky-blue border-4 border-black rotate-45 -z-10"
       />
       
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
@@ -69,6 +64,15 @@ const Hero = () => {
             <MagneticWrapper>
               <a href="mailto:vansh14raturi@gmail.com" className="bg-white text-black comic-button flex gap-2 items-center hover:bg-gray-100">
                 Contact Me
+              </a>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <a 
+                href="/vanshCv.pdf" 
+                download="Vansh_Raturi_Resume.pdf"
+                className="bg-mint-green text-black comic-button flex gap-2 items-center hover:bg-[#8ade9b]"
+              >
+                <Download size={20} /> Resume
               </a>
             </MagneticWrapper>
           </div>

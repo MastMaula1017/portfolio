@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import MagneticWrapper from './MagneticWrapper';
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-6">
+          <div className="hidden md:flex gap-6 items-center">
             {navLinks.map((link) => (
               <MagneticWrapper key={link}>
                 <a 
@@ -40,6 +40,15 @@ const Navbar = () => {
                 </a>
               </MagneticWrapper>
             ))}
+            <MagneticWrapper>
+              <a 
+                href="/vanshCv.pdf" 
+                download="Vansh_Raturi_Resume.pdf"
+                className="inline-flex items-center gap-2 bg-bubblegum text-black font-fredoka font-bold text-lg px-4 py-2 border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ff9c95] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all"
+              >
+                <Download size={18} /> Resume
+              </a>
+            </MagneticWrapper>
           </div>
 
           {/* Mobile Toggle */}
@@ -70,6 +79,14 @@ const Navbar = () => {
                 {link}
               </a>
             ))}
+            <a 
+              href="/resume.pdf" 
+              download="Vansh_Raturi_Resume.pdf"
+              onClick={() => setIsOpen(false)}
+              className="font-fredoka font-bold text-xl border-4 border-black bg-bubblegum px-4 py-3 rounded-xl text-center flex items-center justify-center gap-2 active:bg-[#ff9c95] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <Download size={24} /> Download Resume
+            </a>
           </motion.div>
         )}
       </div>

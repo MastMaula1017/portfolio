@@ -9,6 +9,7 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import Mascot from './components/Mascot';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -27,9 +28,7 @@ function App() {
         <Contact />
       </main>
       
-      <footer className="py-8 border-t-4 border-black text-center font-fredoka bg-white relative z-10">
-        <p className="text-lg">Made with 💙 and 🍕 by Vansh Raturi &copy; {new Date().getFullYear()}</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

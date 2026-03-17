@@ -11,6 +11,7 @@ const projectsData = [
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Socket.io"],
     color: "bg-bubblegum",
     liveLink: "https://consultpro.vanshraturi.me/",
+    image: "/consult.png",
     privateRepo: true
   },
   {
@@ -19,6 +20,7 @@ const projectsData = [
     description: "Full-stack telemedicine app enabling remote doctor-patient consultations. Optimized UI flow, secure JWT role-based access control, and established a complete CI auto-deployment flow with Netlify and Render.",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     color: "bg-mint-green",
+    image: "/telemedicine.png",
     repoLink: "https://github.com/Shridhar2622/Telemedicine"
   },
   {
@@ -27,6 +29,7 @@ const projectsData = [
     description: "Interactive gamified platform driving a 25% increase in habit-completion. Reward-driven fitness systems and real-time leadership boards mapping live rankings to boost user engagement.",
     tech: ["PHP", "MySQL", "Tailwind CSS"],
     color: "bg-sky-blue",
+    image: "/healthGamification.png",
     repoLink: "https://github.com/MastMaula1017/Gamified-Health-Website"
   }
 ];
@@ -46,13 +49,23 @@ const Projects = () => {
             transition={{ delay: idx * 0.2 }}
             className={`comic-card ${project.color} flex flex-col h-full`}
           >
-            {/* Project Image Placeholder - stylized as a comic panel frame */}
-            <div className="h-48 border-b-4 border-black bg-white relative overflow-hidden group">
-               <div className="absolute inset-0 flex items-center justify-center font-fredoka text-4xl opacity-50 font-bold group-hover:scale-110 transition-transform">
-                 {project.title.split(' ')[0]}
-               </div>
-               {/* Halftone dots pattern background */}
-               <div className="absolute inset-0 bg-[radial-gradient(black_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+            {/* Project Image Placeholder / Real Image */}
+            <div className={`h-48 border-b-4 border-black relative overflow-hidden group ${project.image ? '' : 'bg-white'}`}>
+               {project.image ? (
+                 <img 
+                   src={project.image} 
+                   alt={project.title} 
+                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                 />
+               ) : (
+                 <>
+                   <div className="absolute inset-0 flex items-center justify-center font-fredoka text-4xl opacity-50 font-bold group-hover:scale-110 transition-transform">
+                     {project.title.split(' ')[0]}
+                   </div>
+                   {/* Halftone dots pattern background */}
+                   <div className="absolute inset-0 bg-[radial-gradient(black_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                 </>
+               )}
             </div>
             
             <div className="p-6 flex-grow flex flex-col">
