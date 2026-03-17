@@ -1,25 +1,111 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Coffee, Rocket, Star, Heart } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import MagneticWrapper from './MagneticWrapper';
 
 const Footer = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [isShaking, setIsShaking] = useState(false);
+  const [flashColor, setFlashColor] = useState(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const popHeartConfetti = () => {
+    const defaults = { spread: 360, ticks: 100, gravity: 0, decay: 0.94, startVelocity: 30, shapes: ['heart'], colors: ['#FFC0CB', '#FF69B4', '#FF1493', '#C71585'] };
+    confetti({ ...defaults, particleCount: 50, scalar: 2 });
+    confetti({ ...defaults, particleCount: 25, scalar: 3 });
+    confetti({ ...defaults, particleCount: 10, scalar: 4 });
+  };
+
+  const triggerCoffeeShake = () => {
+    setIsShaking(true);
+    setTimeout(() => setIsShaking(false), 500); // Shake for 500ms
+  };
+
+  const shootRocket = () => {
+    // Scroll tiny bit down then quickly up to simulate launch
+    window.scrollBy({ top: 50, behavior: 'smooth' });
+    setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.1 },
+            colors: ['#000000', '#FFFFFF', '#8ade9b']
+        });
+    }, 300);
+  };
+
+  const flashStarPower = () => {
+    const colors = ['#ff9ca2', '#8ade9b', '#8ae8ff', '#fbfab1'];
+    setFlashColor(colors[Math.floor(Math.random() * colors.length)]);
+    setTimeout(() => setFlashColor(null), 150);
+    setTimeout(() => {
+       setFlashColor(colors[Math.floor(Math.random() * colors.length)]);
+       setTimeout(() => setFlashColor(null), 150);
+    }, 300);
+    
+    // Star confetti explosion
+    confetti({
+      particleCount: 80,
+      spread: 100,
+      origin: { y: 1 },
+      shapes: ['star'],
+      colors: ['#fbfab1', '#FFD700', '#FFA500']
+    });
+  };
+
+  useEffect(() => {
+    if (isShaking) {
+      document.body.classList.add('shake-animation');
+    } else {
+      document.body.classList.remove('shake-animation');
+    }
+  }, [isShaking]);
+
+  useEffect(() => {
+    if (flashColor) {
+      document.body.style.backgroundColor = flashColor;
+      document.body.style.transition = 'background-color 0s';
+    } else {
+      document.body.style.backgroundColor = '';
+      document.body.style.transition = 'background-color 0.5s ease';
+    }
+  }, [flashColor]);
+
   const interactiveElements = [
-    { id: 'code', icon: <Rocket size={24} />, text: 'Launched with Code', color: 'bg-bubblegum' },
-    { id: 'coffee', icon: <Coffee size={24} />, text: 'Fueled by Logic', color: 'bg-mint-green' },
-    { id: 'heart', icon: <Heart size={24} />, text: 'Built with Passion', color: 'bg-sky-blue' },
-    { id: 'star', icon: <Star size={24} />, text: 'Aiming for the Stars', color: 'bg-pastel-yellow' }
+    { id: 'coffee', icon: <Coffee size={24} />, text: 'Caffeine Rush', color: 'bg-mint-green', action: triggerCoffeeShake },
+    { id: 'heart', icon: <Heart size={24} />, text: 'Spread Love', color: 'bg-sky-blue', action: popHeartConfetti },
+    { id: 'star', icon: <Star size={24} />, text: 'Star Power', color: 'bg-pastel-yellow', action: flashStarPower },
+    { id: 'code', icon: <Rocket size={24} />, text: 'Launch Rocket', color: 'bg-bubblegum', action: shootRocket }
   ];
 
   return (
     <footer className="relative mt-24 overflow-hidden bg-black text-white pt-20 pb-10 border-t-8 border-black z-20">
       
+      {/* Dynamic inline style for shake - Alternatively added to index.css */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes screenShake {
+          0% { transform: translate(1px, 1px) rotate(0deg); }
+          10% { transform: translate(-1px, -2px) rotate(-1deg); }
+          20% { transform: translate(-3px, 0px) rotate(1deg); }
+          30% { transform: translate(3px, 2px) rotate(0deg); }
+          40% { transform: translate(1px, -1px) rotate(1deg); }
+          50% { transform: translate(-1px, 2px) rotate(-1deg); }
+          60% { transform: translate(-3px, 1px) rotate(0deg); }
+          70% { transform: translate(3px, 1px) rotate(-1deg); }
+          80% { transform: translate(-1px, -1px) rotate(1deg); }
+          90% { transform: translate(1px, 2px) rotate(0deg); }
+          100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .shake-animation {
+          animation: screenShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+      `}} />
+
       {/* Cityscape Silhouette Background */}
       <div 
          className="absolute bottom-0 w-[200%] h-32 bg-white/5 flex items-end -z-10"
@@ -33,10 +119,12 @@ const Footer = () => {
            {interactiveElements.map((el) => (
               <MagneticWrapper key={el.id}>
                 <motion.div 
+                   onClick={el.action}
                    onHoverStart={() => setHoveredIcon(el.id)}
                    onHoverEnd={() => setHoveredIcon(null)}
                    whileHover={{ y: -10, scale: 1.1 }}
-                   className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl border-4 border-black flex items-center justify-center cursor-pointer relative shadow-[4px_4px_0_0_rgba(0,0,0,1)] ${hoveredIcon === el.id ? el.color : 'bg-gray-100'}`}
+                   whileTap={{ scale: 0.9 }}
+                   className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl border-4 border-black flex items-center justify-center cursor-pointer relative shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:shadow-none active:translate-y-1 transition-colors ${hoveredIcon === el.id ? el.color : 'bg-gray-100'}`}
                 >
                    <div className={`${hoveredIcon === el.id ? 'text-black' : 'text-gray-600'}`}>
                       {el.icon}
@@ -49,7 +137,7 @@ const Footer = () => {
                          initial={{ opacity: 0, y: 10, scale: 0.8 }}
                          animate={{ opacity: 1, y: -20, scale: 1 }}
                          exit={{ opacity: 0, y: 10, scale: 0.8 }}
-                         className={`absolute -top-14 w-max px-4 py-2 border-2 border-black rounded-xl font-bold font-fredoka shadow-[2px_2px_0_0_rgba(0,0,0,1)] text-black z-30 ${el.color}`}
+                         className={`absolute -top-14 w-max px-4 py-2 border-2 border-black rounded-xl font-bold font-fredoka shadow-[2px_2px_0_0_rgba(0,0,0,1)] text-black z-30 pointer-events-none ${el.color}`}
                        >
                          {el.text}
                          {/* Tooltip pointer */}
